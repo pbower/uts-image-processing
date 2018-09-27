@@ -140,11 +140,32 @@ confMat = bsxfun(@rdivide,confMat,sum(confMat,2))
 % Display the mean accuracy on evaluation partition
 mean(diag(confMat))
 
+% Display Heatmap of Results
+figure
+[cmat, classNames] = confusionmat(evalLabels, predictedLabels);
+h = heatmap(classNames,classNames,cmat);
+xlabel('Predicted Class');
+ylabel('True Class');
+title('Confusion Matrix');
 
+% Display Confusion Matrix
+figure
+title('Confusion Matrix');
+plotconfusion(evalLabels,predictedLabels);
 
-
-
-
-
+% Display some test images with predicted classes and probabilities
+figure
+sgtitle('Incorrectly Labelled Images')
+hold on
+count = 0
+for n = 1:length(evalLabels)
+    if evalSet.Labels(n) ~= predictedLabels(n)
+        title(n)
+        count = count + 1;
+        subplot(15,15,count); 
+        imshow(readimage(evalSet,n))
+    end
+end
+hold off
 
 
