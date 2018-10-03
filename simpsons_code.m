@@ -2,26 +2,45 @@
 S = dbstack();
 filepath = erase(mfilename('fullpath'), S(1).name);
 
+%Prompt the user for imput of number of characters to train the model on
+%This is for scalability on the users processing power and time avaliable
+prompt = 'How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train the model. ';
+CharNo = input(prompt);
+CharRev = 10 - CharNo;
+
 % Initial Setup
 characters = {                                                                         % Uncomment all characters you want to run
     'homer_simpson'
     'ned_flanders'                                                                     % Top 10 characters (samples >1000)
-    %'moe_szyslak'
-    %'lisa_simpson'
-    %'bart_simpson'
-    %'marge_simpson'
-    %'krusty_the_clown'
-    %'principal_skinner'
-    %'charles_montgomery_burns'
-    %'milhouse_van_houten'
-    }; 
+    'moe_szyslak'
+    'lisa_simpson'
+    'bart_simpson'
+    'marge_simpson'
+    'krusty_the_clown'
+    'principal_skinner'
+    'charles_montgomery_burns'
+    'milhouse_van_houten'
+    };
+if CharNo <= 9
+    for n = CharNo+1:10
+        characters{n,1} = [];
+        characters{n,:} = [];
+    end
+else
+    
+end
+%characters = characters(end-8: 1,:);
+ characters(cellfun('isempty',characters)) = [];
 
 trainingFolder = fullfile(filepath, 'simpsons_train_top10');                            % Set Training Folder
 train_imds = imageDatastore(fullfile(trainingFolder, characters), 'LabelSource', 'foldernames');  % Set image data store as only the predefined characters
-tbl = countEachLabel(train_imds)                                                        % Double check count of images in each foldernames
+tbl = countEachLabel(train_imds);                                                        % Double check count of images in each foldernames
 minSetCount = min(tbl{:,2});                                                            % Determine the smallest amount of images in a character
 train_imds = splitEachLabel(train_imds, minSetCount, 'randomize');                      % Set image folders to be the same size
 countEachLabel(train_imds)                                                              % Triple check count of images in each foldernames
+
+
+
 
 % Extract the first image from each folder and create a 2x5 box to display them
 figure
