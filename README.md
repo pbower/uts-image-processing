@@ -36,7 +36,7 @@ Home > Project folder > install_supportsoftware.exe
 MATLAB will open an install prompt for "Neural Network Toolbox Model for ResNet-50 Network Version 18.1.0"
 
 Tick the checkbock, click next and follow the prompts to complete the installation.
-
+```
 
 ## Running the Model
 
