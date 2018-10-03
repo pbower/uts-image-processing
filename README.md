@@ -63,22 +63,22 @@ of classes given. Our team recommends giving '2' for the first run as each syste
 
 ## Authors
 
-* **Elektra Neocleous** - *Documentation and Testing* 
+* **Elektra Neocleous** - *Documentation and Testing*  
 	Insert contribution here.
-
-* **Eric Chan** - *Documentation and Testing*
+  
+* **Eric Chan** - *Documentation and Testing*  
 	Insert contribution here. 
-	
-* **Josh Overett** - *Documentation and Testing* 
+  	
+* **Josh Overett** - *Documentation and Testing*   
 	Insert contribution here.
-	
-* **Michael Aquilina** - *Documentation and Testing* 
+  	
+* **Michael Aquilina** - *Documentation and Testing*   
 	Insert contribution here.
-	
-* **Peter Bower** - *Development and Tuning* 
+  	
+* **Peter Bower** - *Development and Tuning*   
 	Insert contribution here.
-
-* **Scott Casey** - *Documentation and Scalability* 
+  
+* **Scott Casey** - *Documentation and Scalability*   
 	Insert contribution here.
 	
 
