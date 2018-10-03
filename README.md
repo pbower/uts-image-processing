@@ -51,9 +51,8 @@ From Matlab Home:
 3. You will prompted by the following message in MATLAB: <em>How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train the model.</em>.  
 3. Enter a number from 2-10 in the MATLAB commandline.
 
-The model will not execute and begin training/scoring. This time varies from ~3 to 15 minutes depending on the number
-of classes given. Our team recommends giving '2' for the first run to determine how long it will take your system to run
-the model as it varies for different systems.
+The model will now execute and begin training/scoring. The time varies from 3 to 15 minutes depending on the number
+of classes given. Our team recommends giving '2' for the first run as each system time varies depending on CPU power.
 
 
 ## Built With
@@ -65,16 +64,26 @@ the model as it varies for different systems.
 ## Authors
 
 * **Elektra Neocleous** - *Documentation and Testing* 
-* **Eric Chan** - *Documentation and Testing* 
-* **Michael Aquilina** - *Documentation and Testing* 
-* **Scott Casey** - *Documentation and Scalability* 
-* **Peter Bower** - *Development and Tuning* 
-* **Josh Overett** - *Documentation and Testing* 
+	Insert contribution here.
 
+* **Eric Chan** - *Documentation and Testing*
+	Insert contribution here. 
+	
+* **Josh Overett** - *Documentation and Testing* 
+	Insert contribution here.
+	
+* **Michael Aquilina** - *Documentation and Testing* 
+	Insert contribution here.
+	
+* **Peter Bower** - *Development and Tuning* 
+	Insert contribution here.
+
+* **Scott Casey** - *Documentation and Scalability* 
+	Insert contribution here.
+	
 
 ## References
 
-* Reference the github that prepared the data.
-* Reference Resnet50
-* etc
+* Attia, Alex - Creator of the Simpsons Dataset - [Kaggle URL](https://www.kaggle.com/alexattia/the-simpsons-characters-dataset)
+* Kaggle - Resnet50 - [Overview of ResNet50](https://www.kaggle.com/keras/resnet50)
 
