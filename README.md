@@ -17,7 +17,7 @@ There are two prerequisites in order to run this model.
 
 ```
 MATLAB - Downloaded and Installed
-Dataset - The Simpsons dataset downloaded and present in the root of the codebase folder directory.
+Dataset - The Simpsons dataset must be present in the root of the codebase folder directory. This will download and work automatically provided the project is cloned or downloaded via the GIT .zip file.
 ```
 
 ### Installing
@@ -40,7 +40,7 @@ Tick the checkbock, click next and follow the prompts to complete the installati
 
 ## Running the Model
 
-This section will explain how to run the classificaiton model.
+This section will explain how to run the classification model.
 
 ### Execute the classification model
 
