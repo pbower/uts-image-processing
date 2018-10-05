@@ -135,9 +135,9 @@ if trainCNN == 'y'
 
     % Our Custom Neural Net with the last 2 layers
     net = trainNetwork(augmentedTrainingSet, lgraph, options);
-    Save Neural Network Weights
+    %Save Neural Network Weights
     teamNet = net;
-    save(teamNet, 'teamNet')
+    save ('teamNet.mat', 'teamNet')
 end
 
 % Can be commented out to run ResNet-50 without the last layers replaced
@@ -150,6 +150,7 @@ w1 = mat2gray(w1);
 w1 = imresize(w1,5); 
 figure
 montage(w1)
+featureLayer = 'fc1000';
 title('First convolutional layer weights');
 
 if trainSVM == 'y'
