@@ -9,17 +9,6 @@ charNo = input(prompt);
 
 % Prompt user for CNN feature training
 
-%{    
-    Temporary Note: The first time the program is run, if teamClassifier.mat and teamNet.mat are
-    not in the root folder then the training process will run on the
-    number of characters entered by the user and these 2 files will be generated automatically.
-    teamNet.mat is approx. 85 meg so is too big to upload to GITHUB (limit
-    25mb), however running the whole process for 2 characters does not take too
-    long on a CPU.
-
-    Recommend we provide the lecturer the teamNet.mat file on a USB.
-%}
-
 if exist('teamClassifier.mat', 'file') == 2 && exist('teamNet.mat', 'file') == 2
     prompt = 'Would you like to re-train last 3 Neural Network layers for feature extraction (y/n)?';
     trainCNN = input(prompt, 's');
