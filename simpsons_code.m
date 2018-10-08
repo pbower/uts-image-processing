@@ -1,36 +1,30 @@
 % Automatically determine filepath using this script's location
 S = dbstack();
 filepath = erase(mfilename('fullpath'), S(1).name);
+charNo = textread('lastTrainedCharNo.txt');
 
-% Prompt the user for imput of number of characters to train the model on
-% This is for scalability on the users processing power and time avaliable
-prompt = 'How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train the model. ';
-charNo = input(prompt);
-
-% Prompt user for CNN feature training
-
+% Prompt user for CNN feature and SVM classifier training
 if exist('teamClassifier.mat', 'file') == 2 && exist('teamNet.mat', 'file') == 2
-    prompt = 'Would you like to re-train last 3 Neural Network layers for feature extraction (y/n)?';
-    trainCNN = input(prompt, 's');
-    if trainCNN == 'y'
-        trainSVM = 'y'; % Automatically re-retrain the SVM if features are re-trained
-        disp('Training process will replace ResNet-50 fc_1000 and classification 2layers and SVM Classifier will then re-train')
-    else
-        % Prompt user for SVM training
-        prompt = 'Would you like to re-train the SVM classifier (y/n)?';
-        trainSVM = input(prompt, 's');
-        if trainSVM == 'y'
-            disp('Training process will use saved teamNet for CNN features and Re-train SVM Classifier')
-        else
-            disp('Running classifier without re-training')
-        end
+    disp(strcat(['Existing model with ', num2str(charNo), ' trained characters found...']))
+    prompt = 'Would you like to re-train?';
+    train = input(prompt, 's');
+    if train == 'n'
+        disp('Running classifier without re-training.')
     end 
 else 
-    trainCNN = 'y';
-    trainSVM = 'y';
-    disp('Running full training process as teamClassifier.mat and teamNet.mat are not in root folder.')
+    disp('Unable to teamClassifier.mat and/or teamNet.mat.')
+    disp('These files need to be added to the root folder or else complete the training process which will automatically output these files to the directory.')
+    train = 'y';
 end
-
+ if train == 'y'
+    % Prompt the user for imput of number of characters to train the model on
+    % This is for scalability on the users processing power and time avaliable
+    prompt = 'How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train.';
+    charNo = input(prompt);
+    train = 'y'; % Automatically re-retrain the SVM if features are re-trained
+    disp('Training process will replace ResNet-50 fc_1000 and classification 2layers and SVM Classifier will then re-train')
+ end
+ 
 % Initial Setup
 characters = {                                                                         
     'homer_simpson'
@@ -47,36 +41,37 @@ characters = {
 
 characters = characters(1:charNo);
 
-trainingFolder = fullfile(filepath, 'simpsons_train_top10');                            % Set Training Folder
-train_imds = imageDatastore(fullfile(trainingFolder, characters), 'LabelSource', 'foldernames');  % Set image data store as only the predefined characters
-tbl = countEachLabel(train_imds);                                                        % Double check count of images in each foldernames
-minSetCount = min(tbl{:,2});                                                            % Determine the smallest amount of images in a character
-train_imds = splitEachLabel(train_imds, minSetCount, 'randomize');                      % Set image folders to be the same size
-countEachLabel(train_imds)                                                              % Triple check count of images in each foldernames
+% Train Neural Network Features
+if train == 'y' 
+    
+    trainingFolder = fullfile(filepath, 'simpsons_train_top10');                            % Set Training Folder
+    train_imds = imageDatastore(fullfile(trainingFolder, characters), 'LabelSource', 'foldernames');  % Set image data store as only the predefined characters
+    tbl = countEachLabel(train_imds);                                                        % Double check count of images in each foldernames
+    minSetCount = min(tbl{:,2});                                                            % Determine the smallest amount of images in a character
+    train_imds = splitEachLabel(train_imds, minSetCount, 'randomize');                      % Set image folders to be the same size
+    countEachLabel(train_imds)                                                              % Triple check count of images in each foldernames
 
-% Extract the first image from each folder and create a 2x5 box to display them
-figure
-hold on
-for n = 1:length(characters)
-    character = find(train_imds.Labels == characters(n), 1);
-    disp(characters(n))
-    subplot(2,5,n); 
-    imshow(readimage(train_imds,character))
-end
-hold off
+    % Extract the first image from each folder and create a 2x5 box to display them
+    figure
+    sgtitle('First image from each character folder')
+    hold on
+    for n = 1:length(characters)
+        character = find(train_imds.Labels == characters(n), 1);
+        disp(characters(n))
+        subplot(2,5,n); 
+        imshow(readimage(train_imds,character))
+    end
+    hold off
 
-% Split the training and test sets
-[trainingSet, testSet] = splitEachLabel(train_imds, 0.3, 'randomize'); 
+    % Split the training and test sets
+    [trainingSet, testSet] = splitEachLabel(train_imds, 0.3, 'randomize'); 
 
-% Adjust the image size so that its readable by the classifier
-net = resnet50();
-imageSize = net.Layers(1).InputSize;
+    % Adjust the image size so that its readable by the classifier
+    net = resnet50();
+    imageSize = net.Layers(1).InputSize;
 
-augmentedTrainingSet = augmentedImageDatastore(imageSize, trainingSet, 'ColorPreprocessing', 'gray2rgb');
-augmentedTestSet = augmentedImageDatastore(imageSize, testSet, 'ColorPreprocessing', 'gray2rgb');
-
-% Retrain Neural Network Layers based on user's input
-if trainCNN == 'y' 
+    augmentedTrainingSet = augmentedImageDatastore(imageSize, trainingSet, 'ColorPreprocessing', 'gray2rgb');
+    augmentedTestSet = augmentedImageDatastore(imageSize, testSet, 'ColorPreprocessing', 'gray2rgb');
 
     % Setup the transfer learning network    
     analyzeNetwork(net)
@@ -153,7 +148,7 @@ montage(w1)
 featureLayer = 'fc1000';
 title('First convolutional layer weights');
 
-if trainSVM == 'y'
+if train == 'y'
     % Setup NN Feature Parameters
     trainingFeatures = activations(net, augmentedTrainingSet, featureLayer, ...
         'MiniBatchSize', 64, 'OutputAs', 'columns'); 
@@ -192,6 +187,11 @@ if trainSVM == 'y'
     % Display the mean accuracy on test partition
     disp('Printing Test Accuracy:')
     mean(diag(confMat))
+    
+    % Write the number of trained characters to a text file
+    fileID = fopen('lastTrainedCharNo.txt','w');
+    fprintf(fileID,'%g\n', charNo);
+    fclose(fileID); 
 else
     load ('teamClassifier.mat', 'teamClassifier')
     classifier = teamClassifier;
@@ -249,21 +249,15 @@ figure
 title('Confusion Matrix');
 plotconfusion(evalLabels,predictedLabels);
 
-% Display some test images with predicted classes and probabilities
-figure
-sgtitle('Incorrectly Labelled Images')
-hold on
-count = 0;
-for n = 1:length(evalLabels)
-    if evalSet.Labels(n) ~= predictedLabels(n)
-        title(n)
-        count = count + 1;
-        subplot(15,15,count); 
-        imshow(readimage(evalSet,n))
-    end
-end
-hold off
-
-
-
-
+ % Display Montage of Incorrectly Labelled Images
+ totalIncorrect = sum(evalSet.Labels ~= predictedLabels);
+ incCount = 0;
+ incorrectImageList = cell(1, totalIncorrect);
+ for n = 1:length(evalLabels)
+     if evalSet.Labels(n) ~= predictedLabels(n)
+         incorrectImageList{incCount+1} = readimage(evalSet, n);
+         incCount = incCount + 1;
+     end
+ end
+ montage(incorrectImageList)
+ title('Incorrectly labelled images')
