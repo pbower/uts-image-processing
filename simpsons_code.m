@@ -138,6 +138,7 @@ end
 % Can be commented out to run ResNet-50 without the last layers replaced
 load teamNet
 net = teamNet();
+imageSize = net.Layers(1).InputSize;
 
 % Set NN weights
 w1 = net.Layers(2).Weights; 
