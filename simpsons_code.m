@@ -78,7 +78,7 @@ if train == 'y'
     lgraph = layerGraph(net);
 
     % Set Training Options
-    options = trainingOptions('sgdm', 'InitialLearnRate', 0.001, 'MaxEpochs', 5, 'MiniBatchSize', 64, 'Shuffle','every-epoch','Plots','training-progress');
+    options = trainingOptions('sgdm', 'InitialLearnRate', 0.001, 'MaxEpochs', 3, 'MiniBatchSize', 64, 'Shuffle','every-epoch','Plots','training-progress');
 
     % Check that the last 2 layer replacements are connected correctly
     figure('Units','normalized','Position',[0.3 0.3 0.4 0.4]);
