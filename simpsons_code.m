@@ -243,7 +243,7 @@ figure
 h = heatmap(classNames,classNames,cmat);
 xlabel('Predicted Class');
 ylabel('True Class');
-title('Confusion Matrix');
+title('Heatmap');
 
 % Display Confusion Matrix
 figure
@@ -260,5 +260,6 @@ plotconfusion(evalLabels,predictedLabels);
          incCount = incCount + 1;
      end
  end
+ figure
  montage(incorrectImageList)
  title('Incorrectly labelled images')
