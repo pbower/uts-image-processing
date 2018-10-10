@@ -82,7 +82,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 ## Authors
 
 ### Note
-Our group worked on this project as a team and there was significant crossover in areas of work and everyone has contributed evenly.  For reading simplicity, tasks and sections of the project have been broken down and assigned to each member.
+This was a team project with significant crossover in areas of work and equal contributions from all team members.  The primary roles, tasks and focus areas for each are detailed below:
 
 * **Michael Aquilina 12004521** - *Documentation and Testing*     
 	During the research proposal, I focused on writing about the Simpsons dataset and what input was going to be used in the model. 	Throughout the actual implementation of the project, I was initially tasked with testing the baseline model that was produced. 		The team planned to use GPU processing, however at the particular time of testing, this feature was not complete. I spent my 		time executing various different test cases from 2-10 classes using the following specifications:  
