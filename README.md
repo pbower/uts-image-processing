@@ -61,7 +61,8 @@ The model will now execute and begin training/scoring. Without training, the mod
 *  MATLAB - MATLAB (matrix laboratory) is a multi-paradigm numerical computing environment and proprietary programming language developed by MathWorks.
 *  Resnet50 -  Matlab's Deep Learning Toolbox Model for ResNet-50
 
-## Major Optimisation Steps Taken:	<em>Note: Accuracy %'s are with respect to 10 characters</em>
+## Major Optimisation Steps Taken:	
+#### Note: Accuracy %'s are with respect to 10 characters
 1. Initial Algorithm Development (Res-Net 50 > SVM Classifier Model)  -> ~71% Acc.
 2. Replace final Convolutional & Classification layers with custom ones to train on Simpson's features - > ~91% Acc.
 3. Adjust training maxEpochs to avoid overfitting -> ~93% Acc.
