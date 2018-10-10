@@ -17,7 +17,8 @@ There are two prerequisites in order to run this model.
 
 ```
 MATLAB - Downloaded and Installed
-Dataset - The Simpsons dataset downloaded and present in the root of the codebase folder directory.
+Dataset - The Simpsons dataset must be present in the root of the codebase folder directory. 
+This will download and work automatically provided the project is cloned or downloaded via the GIT .zip file.
 ```
 
 ### Installing
@@ -31,16 +32,16 @@ Installing Resnet
 ```
 From MATLAB
 
-Home > Project folder > install_supportsoftware.exe
+Home > Project folder > resnet50.mlpkginstall
 
-MATLAB will open an install prompt for "Neural Network Toolbox Model for ResNet-50 Network Version 18.1.0"
+MATLAB will open an install prompt for "Neural Network Toolbox Model for the latest ResNet-50 Network Version applicable to your Matlab version."
 
 Tick the checkbock, click next and follow the prompts to complete the installation.
 ```
 
 ## Running the Model
 
-This section will explain how to run the classificaiton model.
+This section will explain how to run the classification model.
 
 ### Execute the classification model
 
@@ -48,18 +49,35 @@ From Matlab Home:
 
 1. Open the simpsons_code.m file
 2. From Editor, Click Run
-3. You will prompted by the following message in MATLAB: <em>How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train the model.</em>.  
-3. Enter a number from 2-10 in the MATLAB commandline.
+3. You will prompted as to whether you would like to re-train the model. If you do so, you will then be able to choose between 2-10 characters which will impact training time. 
+<em>Note: Training time for 10 characters was approximately 2 hours for 5 epochs on a 2.9 GHz Intel Core i7 2017 MacBook Pro with 16GB of RAM and no CUDA GPU. </em>.  
+4. Training includes replacing the final ResNet-50 layers with convolutional and classification feature layers trained from the Simpsons dataset.
+5. These features are then used to train an SVM Classifier which does the actual classification in the model.
 
-The model will now execute and begin training/scoring. The time varies from 3 to 15 minutes depending on the number
-of classes given. Our team recommends giving '2' for the first run as each system time varies depending on CPU power.
-
+The model will now execute and begin training/scoring. Without training, the model takes approximately 2 minutes to run and produce a score. If training, our team recommends running it on '2' characters for the first run as each system time varies depending on CPU power.
 
 ## Built With
 
 *  MATLAB - MATLAB (matrix laboratory) is a multi-paradigm numerical computing environment and proprietary programming language developed by MathWorks.
-*  Resnet50 -  ResNet-50 Pre-trained Model for Keras
+*  Resnet50 -  Matlab's Deep Learning Toolbox Model for ResNet-50
 
+## Major Optimisation Steps Taken:	
+#### Note: Accuracy %'s are with respect to 10 characters
+1. Initial Algorithm Development (Res-Net 50 > SVM Classifier Model)  <em>~71% Acc.</em>
+2. Replace final Convolutional & Classification layers with custom ones to train on Simpson's features <em>~91% Acc.</em>
+3. Adjust training maxEpochs to avoid overfitting <em>~93% Acc.</em>
+4. Add self-learning hyperparameters for SVM -> minor improvement <em>+ ~0.5% Acc. </em>
+5. Try training with different learning rates and parameters -> no improvement and in some instances training failed to converge; optimal learning rate 0.001
+
+<em> At this stage we further reviewed misclassified Training examples and realised they were actually characters who had more training data (e.g. Homer, Bart), so we needed to 'top up' our training volumes for characters who had the least but the model had no issues with (e.g. Milhouse).</em>
+
+5. Create 300-400 more training examples via:  
+	* Running a python script to automatically download 100 images of the characters with the lowest training sample sizes from Google Images <em>(included in Dev Tools folder)</em>
+	* For images that needed more training data than Google had available (e.g. Milhouse), resample them by flipping them on the horizontal axis using Bash
+	* Organise them into the image naming conventions using Bash
+6. Re-Ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
+
+#### To replicate this these results, run the algorithm 'as-is' without training. One can also refer to the 'saved_results' folder for output images.
 
 ## Authors
 
@@ -82,8 +100,14 @@ In this project I contributed to the documentation within the proposal and prese
 	Insert contribution here.
 	
 
-## References
+## Source References
 
 * Attia, Alex - Creator of the Simpsons Dataset - [Kaggle URL](https://www.kaggle.com/alexattia/the-simpsons-characters-dataset)
+Mathworks - RestNet 50 - Software Download - [ResNet50 Download](https://au.mathworks.com/matlabcentral/fileexchange/64626-deep-learning-toolbox-model-for-resnet-50-network)
 * Kaggle - Resnet50 - [Overview of ResNet50](https://www.kaggle.com/keras/resnet50)
 
+
+## Development References
+[Train Deep Learning Network to Classify New Images- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/examples/train-deep-learning-network-to-classify-new-images.html)
+
+[Deep Learning in 10 lines of Matlab Code](https://blogs.mathworks.com/pick/2017/02/24/deep-learning-transfer-learning-in-10
