@@ -100,13 +100,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 
   	
 * **Peter Bower** - *Development and Tuning*   
-	In this project I have focused on building on the initial transfer learning model via the above optimisation steps, including:
-	D Replacing CNN's final convolutional and classification layer with a custom one
-	* Adding Training Progress chart
-	* Adjusting training parameters
-	* Setting up auto-hyperparameter optimisation for the SVM
-	* Reviewing Incorrectly Classified Images and adding new training examples
-	* Confusion Matrix
+	During the project I have focused on building on the initial ResNet-50 transfer learning model. This included helping take it from 71% accuracy to 95% accuracy via replacing ResNet-50's final convolutional and classification layers with custom ones, and extracting CNN features from the Simpson's dataset. I also added a live Training Progress chart, montage of incorrectly classified images and confusion matrix to visualise accuracy, and setup auto-hyperparameter optimisation for the SVM. Finally, when our accuracy plateued I added and labelled 300-400 more training images for the 4 characters with the smallest sample sizes, and retrained, bringing the final accuracy result to 95.3%.
  
 * **Scott Casey** - *Documentation and Scalability*   
 	Insert contribution here.
