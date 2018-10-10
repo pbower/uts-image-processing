@@ -4,6 +4,7 @@ Image Processing GIT for 31256
 
 This project demonstrates the use of a Support Vector Machine (SVM) trained with features via a Convolutional Neural Network (CNN) to classify Simpsons Characters. The Model was trained on 1400+ JPEG files of characters and generates an overall accuracy score for the overall number of classes trained. This project was developed in MATLAB using the ResNet-50 Deep Learning package, which had its final convolution and classification layers replaced to be specific to the Simpson's dataset. 
 To date we have achieved an overall accuracy score of 95.3% accuracy for 10 characters.
+The user can elect to re-run this result without training or choose the number of characters (classes) to train.
  
 
 ## Getting Started
