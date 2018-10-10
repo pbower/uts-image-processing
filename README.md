@@ -72,7 +72,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 <em> At this stage we further reviewed misclassified Training examples and realised they were actually characters who had more training data (e.g. Homer, Bart), so we needed to 'top up' our training volumes for characters who had the least but the model had no issues with (e.g. Milhouse).</em>
 
 5. Create 300-400 more training examples via:  
-	* Running a python script to automatically download 100 images of the characters with the lowest training sample sizes from Google Images (included in Dev Tools folder)
+	* Running a python script to automatically download 100 images of the characters with the lowest training sample sizes from Google Images <em>(included in Dev Tools folder)</em>
 	* For images that needed more training data than Google had available (e.g. Milhouse), resample them by flipping them on the horizontal axis using Bash
 	* Organise them into the image naming conventions using Bash
 6. Re-Ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
