@@ -3,9 +3,10 @@ S = dbstack();
 filepath = erase(mfilename('fullpath'), S(1).name);
 charNo = textread('lastTrainedCharNo.txt');
 
+% Check matlab version
 matlabVersion = str2num(extractBefore(version, 4))
 
-if matlabVersion >= 9.5
+if matlabVersion >= 9.5 % Only allow training for version 2018b or later
     % Prompt user for CNN feature and SVM classifier training
     if exist('teamClassifier.mat', 'file') == 2 && exist('teamNet.mat', 'file') == 2
         disp(strcat(['Existing model with ', num2str(charNo), ' trained characters found...']))
