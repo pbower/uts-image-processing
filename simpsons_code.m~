@@ -3,34 +3,30 @@ S = dbstack();
 filepath = erase(mfilename('fullpath'), S(1).name);
 charNo = textread('lastTrainedCharNo.txt');
 
-% Check matlab version
 matlabVersion = str2num(extractBefore(version, 4))
 
-if matlabVersion >= 9.5 % Only allow training for version 2018b or later
-    % Prompt user for CNN feature and SVM classifier training
-    if exist('teamClassifier.mat', 'file') == 2 && exist('teamNet.mat', 'file') == 2
-        disp(strcat(['Existing model with ', num2str(charNo), ' trained characters found...']))
-        prompt = 'Would you like to re-train?';
-        train = input(prompt, 's');
-        if train == 'n'
-            disp('Running classifier without re-training.')
-        end 
-    else 
-        disp('Unable to teamClassifier.mat and/or teamNet.mat.')
-        disp('These files need to be added to the root folder or else complete the training process which will automatically output these files to the directory.')
-        train = 'y';
-    end
-     if train == 'y'
-        % Prompt the user for imput of number of characters to train the model on
-        % This is for scalability on the users processing power and time avaliable
-        prompt = 'How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train.';
-        charNo = input(prompt);
-        train = 'y'; % Automatically re-retrain the SVM if features are re-trained
-        disp('Training process will replace ResNet-50 fc_1000 and classification 2layers and SVM Classifier will then re-train')
-     end
-else
-    disp('Running classifier without training as Matlab 2018b or later is not installed...')
+if matlabVersion >= 9.5
+% Prompt user for CNN feature and SVM classifier training
+if exist('teamClassifier.mat', 'file') == 2 && exist('teamNet.mat', 'file') == 2
+    disp(strcat(['Existing model with ', num2str(charNo), ' trained characters found...']))
+    prompt = 'Would you like to re-train?';
+    train = input(prompt, 's');
+    if train == 'n'
+        disp('Running classifier without re-training.')
+    end 
+else 
+    disp('Unable to teamClassifier.mat and/or teamNet.mat.')
+    disp('These files need to be added to the root folder or else complete the training process which will automatically output these files to the directory.')
+    train = 'y';
 end
+ if train == 'y'
+    % Prompt the user for imput of number of characters to train the model on
+    % This is for scalability on the users processing power and time avaliable
+    prompt = 'How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train.';
+    charNo = input(prompt);
+    train = 'y'; % Automatically re-retrain the SVM if features are re-trained
+    disp('Training process will replace ResNet-50 fc_1000 and classification 2layers and SVM Classifier will then re-train')
+ end
  
 % Initial Setup
 characters = {                                                                         
