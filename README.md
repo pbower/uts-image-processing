@@ -64,7 +64,7 @@ of classes given. Our team recommends giving '2' for the first run as each syste
 ## Authors
 
 * **Elektra Neocleous** - *Documentation and Testing*  
-	Insert contribution here.
+In this project I contributed to the documentation within the proposal and presentation and testing of the code. Within the proposal I researched into the image classification problem, the dataset sourced and algorithms we could apply to solve our problem. I discussed these points along with methodology of the machine learning process. I assisted in the editing and formatting of the document with the team. Additionally, I set up the presentation and split up the key points of discussions amongst members. In terms of code, I overlooked the preparation and creation process, assisting the team with idea generation in what we wanted executed. I assisted in testing the code and critiquing syntax. 
   
 * **Eric Chan** - *Documentation and Testing*  
 	Insert contribution here. 
