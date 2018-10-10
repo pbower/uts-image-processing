@@ -63,10 +63,10 @@ The model will now execute and begin training/scoring. Without training, the mod
 
 ## Major Optimisation Steps Taken:	
 #### Note: Accuracy %'s are with respect to 10 characters
-1. Initial Algorithm Development (Res-Net 50 > SVM Classifier Model)  -> ~71% Acc.
-2. Replace final Convolutional & Classification layers with custom ones to train on Simpson's features - > ~91% Acc.
-3. Adjust training maxEpochs to avoid overfitting -> ~93% Acc.
-4. Add self-learning hyperparameters for SVM -> minor improvement < ~0.5%
+1. Initial Algorithm Development (Res-Net 50 > SVM Classifier Model)  ##~71% Acc.
+2. Replace final Convolutional & Classification layers with custom ones to train on Simpson's features ##~91% Acc.
+3. Adjust training maxEpochs to avoid overfitting ##~93% Acc.
+4. Add self-learning hyperparameters for SVM -> minor improvement ##~0.5%
 5. Try training with different learning rates and parameters -> no improvement and in some instances training failed to converge; optimal learning rate 0.001
 
 <em> At this stage we further reviewed misclassified Training examples and realised they were actually characters who had more training data (e.g. Homer, Bart), so we needed to 'top up' our training volumes for characters who had the least but the model had no issues with (e.g. Milhouse).</em>
@@ -75,7 +75,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 	a) Running a python script to automatically download 100 images of the characters with the lowest training sample sizes from Google Images (included in Dev Tools folder)
 	b) For images that needed more training data than Google had available (e.g. Milhouse), resample them by flipping them on the horizontal axis using Bash
 	c) Organise them into the image naming conventions using Bash
-6. Re-Ran training on several parameters. Original ones produced the best results -> 95.3% Acc.
+6. Re-Ran training on several parameters. Original ones produced the best results -> ##95.3% Acc.
 
 ## Authors
 
