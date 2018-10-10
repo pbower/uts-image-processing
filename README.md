@@ -82,8 +82,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 ## Authors
 
 ### Note
-Our group worked on this project as a team and there was significant crossover in areas of work and everyone has contributed evenly.  
-For reading simplicity, tasks and sections of the project have been broken down and assigned to each member.
+Our group worked on this project as a team and there was significant crossover in areas of work and everyone has contributed evenly.  For reading simplicity, tasks and sections of the project have been broken down and assigned to each member.
 
 * **Michael Aquilina 12004521** - *Documentation and Testing*     
 	During the research proposal, I focused on writing about the Simpsons dataset and what input was going to be used in the model. 	Throughout the actual implementation of the project, I was initially tasked with testing the baseline model that was produced. 		The team planned to use GPU processing, however at the particular time of testing, this feature was not complete. I spent my 		time executing various different test cases from 2-10 classes using the following specifications:  
@@ -92,7 +91,7 @@ For reading simplicity, tasks and sections of the project have been broken down 
 	* 32Gb ram
 	* Ryzen 1700 @ 3.00Ghz  
 	  
-Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
+	Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
 
 * **Peter Bower 98136916** - *Development and Tuning*   
 	During the project I have focused on building on the initial ResNet-50 transfer learning model. This included helping take it from 71% accuracy to 95% accuracy via replacing ResNet-50's final convolutional and classification layers with custom ones, and extracting CNN features from the Simpson's dataset. I also added a live Training Progress chart, montage of incorrectly classified images and confusion matrix to visualise accuracy, and setup auto-hyperparameter optimisation for the SVM. Finally, when our accuracy plateued I reviewed the incorrectly classified characters and added+labelled 300-400 more training images for the 4 characters with the smallest sample sizes, and retrained, bringing the final accuracy result to 95.3%.
