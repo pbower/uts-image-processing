@@ -77,8 +77,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 	* Organise them into the image naming conventions using Bash
 6. Re-Ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
 
-#### To replicate this these results, run the algorithm 'as-is' without training. 
-#### One can also refer to the 'saved_results' folder for output images.
+##### To replicate this these results, run the algorithm 'as-is' without training. One can also refer to the 'saved_results' folder for output images.
 
 ## Authors
 
