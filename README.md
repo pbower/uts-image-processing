@@ -95,10 +95,10 @@ The model will now execute and begin training/scoring. Without training, the mod
   	
 * **Peter Bower** - *Development and Tuning*   
 	In this project I have focused on building on the initial transfer learning model via the above optimisation steps, including:
-	> Replacing CNN's final convolutional and classification layer with a custom one
-	> Adjusting training parameters
-	> Setting up auto-hyperparameter optimisation for the SVM
-	> Reviewing Incorrectly Classified Images and adding new training examples
+	* Replacing CNN's final convolutional and classification layer with a custom one
+	* Adjusting training parameters
+	* Setting up auto-hyperparameter optimisation for the SVM
+	* Reviewing Incorrectly Classified Images and adding new training examples
  
 * **Scott Casey** - *Documentation and Scalability*   
 	Insert contribution here.
