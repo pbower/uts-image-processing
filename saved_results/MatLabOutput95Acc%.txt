@@ -1,0 +1,431 @@
+>> simpsons_code
+Existing model with 10 trained characters found...
+Would you like to re-train?y
+How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train.10
+Training process will replace ResNet-50 fc_1000 and classification 2layers and SVM Classifier will then re-train
+
+ans =
+
+  10×2 table
+
+             Label              Count
+    ________________________    _____
+
+    bart_simpson                1380 
+    charles_montgomery_burns    1380 
+    homer_simpson               1380 
+    krusty_the_clown            1380 
+    lisa_simpson                1380 
+    marge_simpson               1380 
+    milhouse_van_houten         1380 
+    moe_szyslak                 1380 
+    ned_flanders                1380 
+    principal_skinner           1380 
+
+    'homer_simpson'
+
+    'ned_flanders'
+
+    'moe_szyslak'
+
+    'lisa_simpson'
+
+    'bart_simpson'
+
+    'marge_simpson'
+
+    'krusty_the_clown'
+
+    'principal_skinner'
+
+    'charles_montgomery_burns'
+
+    'milhouse_van_houten'
+
+
+ans = 
+
+  ImageInputLayer with properties:
+
+                Name: 'input_1'
+           InputSize: [224 224 3]
+
+   Hyperparameters
+    DataAugmentation: 'none'
+       Normalization: 'zerocenter'
+        AverageImage: [224×224×3 single]
+
+
+ans = 
+
+  ClassificationOutputLayer with properties:
+
+            Name: 'ClassificationLayer_fc1000'
+         Classes: [1000×1 categorical]
+      OutputSize: 1000
+
+   Hyperparameters
+    LossFunction: 'crossentropyex'
+
+
+ans =
+
+        1000
+
+
+layers = 
+
+  177x1 Layer array with layers:
+
+     1   'input_1'                      Image Input             224x224x3 images with 'zerocenter' normalization
+     2   'conv1'                        Convolution             64 7x7x3 convolutions with stride [2  2] and padding [3  3  3  3]
+     3   'bn_conv1'                     Batch Normalization     Batch normalization with 64 channels
+     4   'activation_1_relu'            ReLU                    ReLU
+     5   'max_pooling2d_1'              Max Pooling             3x3 max pooling with stride [2  2] and padding [0  0  0  0]
+     6   'res2a_branch2a'               Convolution             64 1x1x64 convolutions with stride [1  1] and padding [0  0  0  0]
+     7   'bn2a_branch2a'                Batch Normalization     Batch normalization with 64 channels
+     8   'activation_2_relu'            ReLU                    ReLU
+     9   'res2a_branch2b'               Convolution             64 3x3x64 convolutions with stride [1  1] and padding 'same'
+    10   'bn2a_branch2b'                Batch Normalization     Batch normalization with 64 channels
+    11   'activation_3_relu'            ReLU                    ReLU
+    12   'res2a_branch2c'               Convolution             256 1x1x64 convolutions with stride [1  1] and padding [0  0  0  0]
+    13   'res2a_branch1'                Convolution             256 1x1x64 convolutions with stride [1  1] and padding [0  0  0  0]
+    14   'bn2a_branch2c'                Batch Normalization     Batch normalization with 256 channels
+    15   'bn2a_branch1'                 Batch Normalization     Batch normalization with 256 channels
+    16   'add_1'                        Addition                Element-wise addition of 2 inputs
+    17   'activation_4_relu'            ReLU                    ReLU
+    18   'res2b_branch2a'               Convolution             64 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    19   'bn2b_branch2a'                Batch Normalization     Batch normalization with 64 channels
+    20   'activation_5_relu'            ReLU                    ReLU
+    21   'res2b_branch2b'               Convolution             64 3x3x64 convolutions with stride [1  1] and padding 'same'
+    22   'bn2b_branch2b'                Batch Normalization     Batch normalization with 64 channels
+    23   'activation_6_relu'            ReLU                    ReLU
+    24   'res2b_branch2c'               Convolution             256 1x1x64 convolutions with stride [1  1] and padding [0  0  0  0]
+    25   'bn2b_branch2c'                Batch Normalization     Batch normalization with 256 channels
+    26   'add_2'                        Addition                Element-wise addition of 2 inputs
+    27   'activation_7_relu'            ReLU                    ReLU
+    28   'res2c_branch2a'               Convolution             64 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    29   'bn2c_branch2a'                Batch Normalization     Batch normalization with 64 channels
+    30   'activation_8_relu'            ReLU                    ReLU
+    31   'res2c_branch2b'               Convolution             64 3x3x64 convolutions with stride [1  1] and padding 'same'
+    32   'bn2c_branch2b'                Batch Normalization     Batch normalization with 64 channels
+    33   'activation_9_relu'            ReLU                    ReLU
+    34   'res2c_branch2c'               Convolution             256 1x1x64 convolutions with stride [1  1] and padding [0  0  0  0]
+    35   'bn2c_branch2c'                Batch Normalization     Batch normalization with 256 channels
+    36   'add_3'                        Addition                Element-wise addition of 2 inputs
+    37   'activation_10_relu'           ReLU                    ReLU
+    38   'res3a_branch2a'               Convolution             128 1x1x256 convolutions with stride [2  2] and padding [0  0  0  0]
+    39   'bn3a_branch2a'                Batch Normalization     Batch normalization with 128 channels
+    40   'activation_11_relu'           ReLU                    ReLU
+    41   'res3a_branch2b'               Convolution             128 3x3x128 convolutions with stride [1  1] and padding 'same'
+    42   'bn3a_branch2b'                Batch Normalization     Batch normalization with 128 channels
+    43   'activation_12_relu'           ReLU                    ReLU
+    44   'res3a_branch2c'               Convolution             512 1x1x128 convolutions with stride [1  1] and padding [0  0  0  0]
+    45   'res3a_branch1'                Convolution             512 1x1x256 convolutions with stride [2  2] and padding [0  0  0  0]
+    46   'bn3a_branch2c'                Batch Normalization     Batch normalization with 512 channels
+    47   'bn3a_branch1'                 Batch Normalization     Batch normalization with 512 channels
+    48   'add_4'                        Addition                Element-wise addition of 2 inputs
+    49   'activation_13_relu'           ReLU                    ReLU
+    50   'res3b_branch2a'               Convolution             128 1x1x512 convolutions with stride [1  1] and padding [0  0  0  0]
+    51   'bn3b_branch2a'                Batch Normalization     Batch normalization with 128 channels
+    52   'activation_14_relu'           ReLU                    ReLU
+    53   'res3b_branch2b'               Convolution             128 3x3x128 convolutions with stride [1  1] and padding 'same'
+    54   'bn3b_branch2b'                Batch Normalization     Batch normalization with 128 channels
+    55   'activation_15_relu'           ReLU                    ReLU
+    56   'res3b_branch2c'               Convolution             512 1x1x128 convolutions with stride [1  1] and padding [0  0  0  0]
+    57   'bn3b_branch2c'                Batch Normalization     Batch normalization with 512 channels
+    58   'add_5'                        Addition                Element-wise addition of 2 inputs
+    59   'activation_16_relu'           ReLU                    ReLU
+    60   'res3c_branch2a'               Convolution             128 1x1x512 convolutions with stride [1  1] and padding [0  0  0  0]
+    61   'bn3c_branch2a'                Batch Normalization     Batch normalization with 128 channels
+    62   'activation_17_relu'           ReLU                    ReLU
+    63   'res3c_branch2b'               Convolution             128 3x3x128 convolutions with stride [1  1] and padding 'same'
+    64   'bn3c_branch2b'                Batch Normalization     Batch normalization with 128 channels
+    65   'activation_18_relu'           ReLU                    ReLU
+    66   'res3c_branch2c'               Convolution             512 1x1x128 convolutions with stride [1  1] and padding [0  0  0  0]
+    67   'bn3c_branch2c'                Batch Normalization     Batch normalization with 512 channels
+    68   'add_6'                        Addition                Element-wise addition of 2 inputs
+    69   'activation_19_relu'           ReLU                    ReLU
+    70   'res3d_branch2a'               Convolution             128 1x1x512 convolutions with stride [1  1] and padding [0  0  0  0]
+    71   'bn3d_branch2a'                Batch Normalization     Batch normalization with 128 channels
+    72   'activation_20_relu'           ReLU                    ReLU
+    73   'res3d_branch2b'               Convolution             128 3x3x128 convolutions with stride [1  1] and padding 'same'
+    74   'bn3d_branch2b'                Batch Normalization     Batch normalization with 128 channels
+    75   'activation_21_relu'           ReLU                    ReLU
+    76   'res3d_branch2c'               Convolution             512 1x1x128 convolutions with stride [1  1] and padding [0  0  0  0]
+    77   'bn3d_branch2c'                Batch Normalization     Batch normalization with 512 channels
+    78   'add_7'                        Addition                Element-wise addition of 2 inputs
+    79   'activation_22_relu'           ReLU                    ReLU
+    80   'res4a_branch2a'               Convolution             256 1x1x512 convolutions with stride [2  2] and padding [0  0  0  0]
+    81   'bn4a_branch2a'                Batch Normalization     Batch normalization with 256 channels
+    82   'activation_23_relu'           ReLU                    ReLU
+    83   'res4a_branch2b'               Convolution             256 3x3x256 convolutions with stride [1  1] and padding 'same'
+    84   'bn4a_branch2b'                Batch Normalization     Batch normalization with 256 channels
+    85   'activation_24_relu'           ReLU                    ReLU
+    86   'res4a_branch2c'               Convolution             1024 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    87   'res4a_branch1'                Convolution             1024 1x1x512 convolutions with stride [2  2] and padding [0  0  0  0]
+    88   'bn4a_branch2c'                Batch Normalization     Batch normalization with 1024 channels
+    89   'bn4a_branch1'                 Batch Normalization     Batch normalization with 1024 channels
+    90   'add_8'                        Addition                Element-wise addition of 2 inputs
+    91   'activation_25_relu'           ReLU                    ReLU
+    92   'res4b_branch2a'               Convolution             256 1x1x1024 convolutions with stride [1  1] and padding [0  0  0  0]
+    93   'bn4b_branch2a'                Batch Normalization     Batch normalization with 256 channels
+    94   'activation_26_relu'           ReLU                    ReLU
+    95   'res4b_branch2b'               Convolution             256 3x3x256 convolutions with stride [1  1] and padding 'same'
+    96   'bn4b_branch2b'                Batch Normalization     Batch normalization with 256 channels
+    97   'activation_27_relu'           ReLU                    ReLU
+    98   'res4b_branch2c'               Convolution             1024 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    99   'bn4b_branch2c'                Batch Normalization     Batch normalization with 1024 channels
+    100   'add_9'                        Addition                Element-wise addition of 2 inputs
+    101   'activation_28_relu'           ReLU                    ReLU
+    102   'res4c_branch2a'               Convolution             256 1x1x1024 convolutions with stride [1  1] and padding [0  0  0  0]
+    103   'bn4c_branch2a'                Batch Normalization     Batch normalization with 256 channels
+    104   'activation_29_relu'           ReLU                    ReLU
+    105   'res4c_branch2b'               Convolution             256 3x3x256 convolutions with stride [1  1] and padding 'same'
+    106   'bn4c_branch2b'                Batch Normalization     Batch normalization with 256 channels
+    107   'activation_30_relu'           ReLU                    ReLU
+    108   'res4c_branch2c'               Convolution             1024 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    109   'bn4c_branch2c'                Batch Normalization     Batch normalization with 1024 channels
+    110   'add_10'                       Addition                Element-wise addition of 2 inputs
+    111   'activation_31_relu'           ReLU                    ReLU
+    112   'res4d_branch2a'               Convolution             256 1x1x1024 convolutions with stride [1  1] and padding [0  0  0  0]
+    113   'bn4d_branch2a'                Batch Normalization     Batch normalization with 256 channels
+    114   'activation_32_relu'           ReLU                    ReLU
+    115   'res4d_branch2b'               Convolution             256 3x3x256 convolutions with stride [1  1] and padding 'same'
+    116   'bn4d_branch2b'                Batch Normalization     Batch normalization with 256 channels
+    117   'activation_33_relu'           ReLU                    ReLU
+    118   'res4d_branch2c'               Convolution             1024 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    119   'bn4d_branch2c'                Batch Normalization     Batch normalization with 1024 channels
+    120   'add_11'                       Addition                Element-wise addition of 2 inputs
+    121   'activation_34_relu'           ReLU                    ReLU
+    122   'res4e_branch2a'               Convolution             256 1x1x1024 convolutions with stride [1  1] and padding [0  0  0  0]
+    123   'bn4e_branch2a'                Batch Normalization     Batch normalization with 256 channels
+    124   'activation_35_relu'           ReLU                    ReLU
+    125   'res4e_branch2b'               Convolution             256 3x3x256 convolutions with stride [1  1] and padding 'same'
+    126   'bn4e_branch2b'                Batch Normalization     Batch normalization with 256 channels
+    127   'activation_36_relu'           ReLU                    ReLU
+    128   'res4e_branch2c'               Convolution             1024 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    129   'bn4e_branch2c'                Batch Normalization     Batch normalization with 1024 channels
+    130   'add_12'                       Addition                Element-wise addition of 2 inputs
+    131   'activation_37_relu'           ReLU                    ReLU
+    132   'res4f_branch2a'               Convolution             256 1x1x1024 convolutions with stride [1  1] and padding [0  0  0  0]
+    133   'bn4f_branch2a'                Batch Normalization     Batch normalization with 256 channels
+    134   'activation_38_relu'           ReLU                    ReLU
+    135   'res4f_branch2b'               Convolution             256 3x3x256 convolutions with stride [1  1] and padding 'same'
+    136   'bn4f_branch2b'                Batch Normalization     Batch normalization with 256 channels
+    137   'activation_39_relu'           ReLU                    ReLU
+    138   'res4f_branch2c'               Convolution             1024 1x1x256 convolutions with stride [1  1] and padding [0  0  0  0]
+    139   'bn4f_branch2c'                Batch Normalization     Batch normalization with 1024 channels
+    140   'add_13'                       Addition                Element-wise addition of 2 inputs
+    141   'activation_40_relu'           ReLU                    ReLU
+    142   'res5a_branch2a'               Convolution             512 1x1x1024 convolutions with stride [2  2] and padding [0  0  0  0]
+    143   'bn5a_branch2a'                Batch Normalization     Batch normalization with 512 channels
+    144   'activation_41_relu'           ReLU                    ReLU
+    145   'res5a_branch2b'               Convolution             512 3x3x512 convolutions with stride [1  1] and padding 'same'
+    146   'bn5a_branch2b'                Batch Normalization     Batch normalization with 512 channels
+    147   'activation_42_relu'           ReLU                    ReLU
+    148   'res5a_branch2c'               Convolution             2048 1x1x512 convolutions with stride [1  1] and padding [0  0  0  0]
+    149   'res5a_branch1'                Convolution             2048 1x1x1024 convolutions with stride [2  2] and padding [0  0  0  0]
+    150   'bn5a_branch2c'                Batch Normalization     Batch normalization with 2048 channels
+    151   'bn5a_branch1'                 Batch Normalization     Batch normalization with 2048 channels
+    152   'add_14'                       Addition                Element-wise addition of 2 inputs
+    153   'activation_43_relu'           ReLU                    ReLU
+    154   'res5b_branch2a'               Convolution             512 1x1x2048 convolutions with stride [1  1] and padding [0  0  0  0]
+    155   'bn5b_branch2a'                Batch Normalization     Batch normalization with 512 channels
+    156   'activation_44_relu'           ReLU                    ReLU
+    157   'res5b_branch2b'               Convolution             512 3x3x512 convolutions with stride [1  1] and padding 'same'
+    158   'bn5b_branch2b'                Batch Normalization     Batch normalization with 512 channels
+    159   'activation_45_relu'           ReLU                    ReLU
+    160   'res5b_branch2c'               Convolution             2048 1x1x512 convolutions with stride [1  1] and padding [0  0  0  0]
+    161   'bn5b_branch2c'                Batch Normalization     Batch normalization with 2048 channels
+    162   'add_15'                       Addition                Element-wise addition of 2 inputs
+    163   'activation_46_relu'           ReLU                    ReLU
+    164   'res5c_branch2a'               Convolution             512 1x1x2048 convolutions with stride [1  1] and padding [0  0  0  0]
+    165   'bn5c_branch2a'                Batch Normalization     Batch normalization with 512 channels
+    166   'activation_47_relu'           ReLU                    ReLU
+    167   'res5c_branch2b'               Convolution             512 3x3x512 convolutions with stride [1  1] and padding 'same'
+    168   'bn5c_branch2b'                Batch Normalization     Batch normalization with 512 channels
+    169   'activation_48_relu'           ReLU                    ReLU
+    170   'res5c_branch2c'               Convolution             2048 1x1x512 convolutions with stride [1  1] and padding [0  0  0  0]
+    171   'bn5c_branch2c'                Batch Normalization     Batch normalization with 2048 channels
+    172   'add_16'                       Addition                Element-wise addition of 2 inputs
+    173   'activation_49_relu'           ReLU                    ReLU
+    174   'avg_pool'                     Average Pooling         7x7 average pooling with stride [7  7] and padding [0  0  0  0]
+    175   'fc1000'                       Fully Connected         1000 fully connected layer
+    176   'fc1000_softmax'               Softmax                 softmax
+    177   'ClassificationLayer_fc1000'   Classification Output   crossentropyex with 'tench' and 999 other classes
+Training on single CPU.
+Initializing image normalization.
+|========================================================================================|
+|  Epoch  |  Iteration  |  Time Elapsed  |  Mini-batch  |  Mini-batch  |  Base Learning  |
+|         |             |   (hh:mm:ss)   |   Accuracy   |     Loss     |      Rate       |
+|========================================================================================|
+|       1 |           1 |       00:00:26 |       14.06% |       2.2945 |          0.0010 |
+|       1 |          50 |       00:21:56 |       78.12% |       0.5922 |          0.0010 |
+|       2 |         100 |       00:42:22 |       93.75% |       0.2035 |          0.0010 |
+|       3 |         150 |       01:00:36 |       98.44% |       0.0735 |          0.0010 |
+|       3 |         192 |       01:17:09 |      100.00% |       0.0385 |          0.0010 |
+|========================================================================================|
+|====================================================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |       Coding |       Lambda |      Learner |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |              |              |
+|====================================================================================================================|
+|    1 | Best   |   0.0019324 |      3.2655 |   0.0019324 |   0.0019324 |     onevsone |       2.3705 |     logistic |
+|    2 | Best   |   0.0014493 |      1.7174 |   0.0014493 |    0.001684 |     onevsone |   4.2681e-09 |          svm |
+|    3 | Best   |  0.00096618 |      1.3837 |  0.00096618 |   0.0014489 |     onevsall |   7.4539e-05 |     logistic |
+|    4 | Accept |   0.0021739 |      1.9211 |  0.00096618 |  0.00096854 |     onevsone |       15.316 |          svm |
+|    5 | Accept |  0.00096618 |      1.5001 |  0.00096618 |  0.00096623 |     onevsall |   2.0757e-05 |     logistic |
+|    6 | Accept |   0.0033816 |      0.5812 |  0.00096618 |  0.00096619 |     onevsall |       24.133 |     logistic |
+|    7 | Accept |   0.0057971 |      1.4256 |  0.00096618 |  0.00096624 |     onevsall |    5.069e-08 |     logistic |
+|    8 | Accept |   0.0014493 |      1.6095 |  0.00096618 |  0.00096619 |     onevsone |   8.7163e-08 |          svm |
+|    9 | Best   |  0.00072464 |      1.4628 |  0.00072464 |  0.00072484 |     onevsall |    0.0025717 |     logistic |
+|   10 | Accept |  0.00072464 |      1.0291 |  0.00072464 |  0.00072471 |     onevsall |      0.02213 |     logistic |
+|   11 | Accept |   0.0012077 |      3.3028 |  0.00072464 |  0.00072471 |     onevsone |   3.9481e-05 |          svm |
+|   12 | Accept |   0.0014493 |      2.9066 |  0.00072464 |  0.00072471 |     onevsone |    0.0034676 |          svm |
+|   13 | Accept |  0.00096618 |      2.8626 |  0.00072464 |   0.0007247 |     onevsone |   0.00068348 |     logistic |
+|   14 | Accept |   0.0012077 |      2.6876 |  0.00072464 |   0.0007247 |     onevsone |   1.4288e-05 |     logistic |
+|   15 | Accept |    0.002657 |      2.0182 |  0.00072464 |   0.0007247 |     onevsone |    3.016e-08 |     logistic |
+|   16 | Accept |  0.00072464 |       2.367 |  0.00072464 |  0.00072471 |     onevsone |     0.016849 |     logistic |
+|   17 | Accept |  0.00072464 |     0.77103 |  0.00072464 |   0.0007247 |     onevsall |     0.001698 |          svm |
+|   18 | Accept |  0.00096618 |     0.67626 |  0.00072464 |   0.0007247 |     onevsall |     0.047522 |          svm |
+|   19 | Accept |   0.0016908 |     0.85961 |  0.00072464 |  0.00072471 |     onevsall |   3.0338e-05 |          svm |
+|   20 | Accept |   0.0038647 |     0.49765 |  0.00072464 |  0.00072471 |     onevsall |       21.519 |          svm |
+|====================================================================================================================|
+| Iter | Eval   | Objective   | Objective   | BestSoFar   | BestSoFar   |       Coding |       Lambda |      Learner |
+|      | result |             | runtime     | (observed)  | (estim.)    |              |              |              |
+|====================================================================================================================|
+|   21 | Accept |  0.00096618 |     0.74926 |  0.00072464 |  0.00072676 |     onevsall |    0.0074756 |          svm |
+|   22 | Accept |   0.0038647 |     0.85672 |  0.00072464 |  0.00071932 |     onevsall |    2.427e-09 |          svm |
+|   23 | Accept |  0.00072464 |       1.076 |  0.00072464 |  0.00072357 |     onevsall |    0.0068387 |     logistic |
+|   24 | Accept |   0.0012077 |     0.84117 |  0.00072464 |  0.00070308 |     onevsall |   0.00052601 |          svm |
+|   25 | Best   |  0.00048309 |      2.4978 |  0.00048309 |  0.00059554 |     onevsone |    0.0063602 |     logistic |
+|   26 | Accept |  0.00048309 |      2.4726 |  0.00048309 |  0.00048125 |     onevsone |    0.0055548 |     logistic |
+|   27 | Accept |   0.0012077 |       2.574 |  0.00048309 |  0.00054393 |     onevsone |   2.4198e-06 |          svm |
+|   28 | Accept |  0.00048309 |      2.5157 |  0.00048309 |  0.00048192 |     onevsone |    0.0053219 |     logistic |
+|   29 | Accept |   0.0014493 |      2.2412 |  0.00048309 |  0.00048191 |     onevsone |      0.15012 |          svm |
+|   30 | Accept |  0.00072464 |     0.71178 |  0.00048309 |   0.0004819 |     onevsall |       0.1941 |     logistic |
+
+__________________________________________________________
+Optimization completed.
+MaxObjectiveEvaluations of 30 reached.
+Total function evaluations: 30
+Total elapsed time: 66.2672 seconds.
+Total objective function evaluation time: 51.3816
+
+Best observed feasible point:
+     Coding      Lambda      Learner 
+    ________    _________    ________
+
+    onevsone    0.0063602    logistic
+
+Observed objective function value = 0.00048309
+Estimated objective function value = 0.0004819
+Function evaluation time = 2.4978
+
+Best estimated feasible point (according to models):
+     Coding      Lambda      Learner 
+    ________    _________    ________
+
+    onevsone    0.0055548    logistic
+
+Estimated objective function value = 0.0004819
+Estimated function evaluation time = 2.5124
+
+
+confMat =
+
+    0.9513    0.0031    0.0155    0.0010    0.0072    0.0114    0.0021         0    0.0052    0.0031
+         0    0.9234    0.0155    0.0062    0.0031    0.0021    0.0021    0.0207    0.0062    0.0207
+    0.0041    0.0124    0.9296    0.0104    0.0021    0.0083    0.0021    0.0166    0.0072    0.0072
+    0.0010    0.0010    0.0093    0.9752    0.0052    0.0021    0.0021    0.0021    0.0010    0.0010
+    0.0093    0.0052    0.0104    0.0062    0.9337    0.0021    0.0083    0.0104    0.0052    0.0093
+    0.0031         0    0.0041    0.0031    0.0072    0.9720    0.0010    0.0031    0.0021    0.0041
+    0.0052    0.0010    0.0031    0.0041    0.0031    0.0062    0.9596    0.0031    0.0083    0.0062
+         0    0.0135    0.0145         0    0.0052    0.0021    0.0021    0.9317    0.0072    0.0238
+    0.0083    0.0010    0.0290    0.0010    0.0021    0.0052    0.0052    0.0052    0.9317    0.0114
+    0.0041    0.0104    0.0145    0.0021    0.0021    0.0041    0.0021    0.0197    0.0041    0.9369
+
+Printing Test Accuracy:
+
+ans =
+
+    0.9445
+
+
+tbl =
+
+  10×2 table
+
+             Label              Count
+    ________________________    _____
+
+    bart_simpson                 50  
+    charles_montgomery_burns     49  
+    homer_simpson                50  
+    krusty_the_clown             50  
+    lisa_simpson                 50  
+    marge_simpson                50  
+    milhouse_van_houten          49  
+    moe_szyslak                  50  
+    ned_flanders                 49  
+    principal_skinner            50  
+
+
+ans =
+
+  10×2 table
+
+             Label              Count
+    ________________________    _____
+
+    bart_simpson                 49  
+    charles_montgomery_burns     49  
+    homer_simpson                49  
+    krusty_the_clown             49  
+    lisa_simpson                 49  
+    marge_simpson                49  
+    milhouse_van_houten          49  
+    moe_szyslak                  49  
+    ned_flanders                 49  
+    principal_skinner            49  
+
+    'homer_simpson'
+
+    'ned_flanders'
+
+    'moe_szyslak'
+
+    'lisa_simpson'
+
+    'bart_simpson'
+
+    'marge_simpson'
+
+    'krusty_the_clown'
+
+    'principal_skinner'
+
+    'charles_montgomery_burns'
+
+    'milhouse_van_houten'
+
+
+confMat =
+
+    0.9388         0         0         0         0    0.0204         0         0         0    0.0408
+         0    0.9796         0    0.0204         0         0         0         0         0         0
+         0    0.0204    0.9592         0         0    0.0204         0         0         0         0
+         0         0         0    1.0000         0         0         0         0         0         0
+         0         0    0.0408    0.0204    0.8980         0         0         0    0.0204    0.0204
+         0         0         0    0.0612         0    0.9184         0         0    0.0204         0
+         0    0.0204         0         0    0.0204         0    0.9592         0         0         0
+         0    0.0408         0         0         0         0    0.0204    0.9388         0         0
+         0         0         0         0         0    0.0204         0         0    0.9592    0.0204
+         0    0.0408         0         0         0         0         0         0         0    0.9592
+
+
+ans =
+
+    0.9510
+
+>> 

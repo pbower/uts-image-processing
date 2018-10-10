@@ -53,7 +53,9 @@ if train == 'y'
 
     % Extract the first image from each folder and create a 2x5 box to display them
     figure
-    sgtitle('First image from each character folder')
+    if version >= 9.5
+        sgtitle('First image from each character folder')
+    end
     hold on
     for n = 1:length(characters)
         character = find(train_imds.Labels == characters(n), 1);
