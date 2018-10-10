@@ -90,12 +90,17 @@ The model will now execute and begin training/scoring. Without training, the mod
 * **Josh Overett** - *Documentation and Testing*   
 	Insert contribution here.
   	
-* **Michael Aquilina** - *Documentation and Testing*   
-	Insert contribution here.
+* **Michael Aquilina** - *Documentation and Testing*     
+	During the research proposal, I focused on writing about the Simpsons dataset and what input was going to be used in the model. 	Throughout the actual implementation of the project, I was initially tasked with testing the baseline model that was produced. 		The team planned to use GPU processing, however at the particular time of testing, this feature was not complete. I spent my 		time executing various different test cases from 2-10 classes using the following specifications:
+	* NVidia 1080 GTX
+	* 32Gb ram
+	* Ryzen 1700 @ 3.00Ghz
+Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
+
   	
 * **Peter Bower** - *Development and Tuning*   
 	In this project I have focused on building on the initial transfer learning model via the above optimisation steps, including:
-	* Replacing CNN's final convolutional and classification layer with a custom one
+	D Replacing CNN's final convolutional and classification layer with a custom one
 	* Adding Training Progress chart
 	* Adjusting training parameters
 	* Setting up auto-hyperparameter optimisation for the SVM
