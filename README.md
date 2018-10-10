@@ -82,7 +82,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 ## Authors
 
 * **Elektra Neocleous** - *Documentation and Testing*  
-In this project I contributed to the documentation within the proposal and presentation and testing of the code. Within the proposal I researched into the image classification problem, the dataset sourced and algorithms we could apply to solve our problem. I discussed these points along with methodology of the machine learning process. I assisted in the editing and formatting of the document with the team. Additionally, I set up the presentation and split up the key points of discussions amongst members. In terms of code, I overlooked the preparation and creation process, assisting the team with idea generation in what we wanted executed. I assisted in testing the code and critiquing syntax. 
+	In this project I contributed to the documentation within the proposal and presentation and testing of the code. Within the proposal I researched into the image classification problem, the dataset sourced and algorithms we could apply to solve our problem. I discussed these points along with methodology of the machine learning process. I assisted in the editing and formatting of the document with the team. Additionally, I set up the presentation and split up the key points of discussions amongst members. In terms of code, I overlooked the preparation and creation process, assisting the team with idea generation in what we wanted executed. I assisted in testing the code and critiquing syntax. 
   
 * **Eric Chan** - *Documentation and Testing*  
 	Insert contribution here. 
@@ -94,8 +94,12 @@ In this project I contributed to the documentation within the proposal and prese
 	Insert contribution here.
   	
 * **Peter Bower** - *Development and Tuning*   
-	Insert contribution here.
-  
+	In this project I have focused on building on the initial transfer learning model via the above optimisation steps, including:
+	> Replacing CNN's final convolutional and classification layer with a custom one
+	> Adjusting training parameters
+	> Setting up auto-hyperparameter optimisation for the SVM
+	> Reviewing Incorrectly Classified Images and adding new training examples
+ 
 * **Scott Casey** - *Documentation and Scalability*   
 	Insert contribution here.
 	
