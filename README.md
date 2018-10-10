@@ -95,7 +95,8 @@ The model will now execute and begin training/scoring. Without training, the mod
 	* NVidia 1080 GTX
 	* 32Gb ram
 	* Ryzen 1700 @ 3.00Ghz
-Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
+	
+	Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
 
   	
 * **Peter Bower** - *Development and Tuning*   
