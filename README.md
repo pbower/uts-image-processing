@@ -81,35 +81,37 @@ The model will now execute and begin training/scoring. Without training, the mod
 
 ## Authors
 
-* **Elektra Neocleous** - *Documentation and Testing*  
-	In this project I contributed to the documentation within the proposal and presentation and testing of the code. Within the proposal I researched into the image classification problem, the dataset sourced and algorithms we could apply to solve our problem. I discussed these points along with methodology of the machine learning process. I assisted in the editing and formatting of the document with the team. Additionally, I set up the presentation and split up the key points of discussions amongst members. In terms of code, I overlooked the preparation and creation process, assisting the team with idea generation in what we wanted executed. I assisted in testing the code and critiquing syntax. 
-  
-* **Eric Chan** - *Documentation and Testing*  
-	Insert contribution here. 
+### Note
+Our group worked on this project as a team and there was significant crossover in areas of work and everyone has contributed evenly.  For reading simplicity, tasks and sections of the project have been broken down and assigned to each member.
+
+* **Michael Aquilina 12004521** - *Documentation and Testing*     
+	During the research proposal, I focused on writing about the Simpsons dataset and what input was going to be used in the model. 	Throughout the actual implementation of the project, I was initially tasked with testing the baseline model that was produced. 		The team planned to use GPU processing, however at the particular time of testing, this feature was not complete. I spent my 		time executing various different test cases from 2-10 classes using the following specifications:  
   	
-* **Josh Overett** - *Documentation and Testing*   
-	Insert contribution here.
-  	
-* **Michael Aquilina** - *Documentation and Testing*     
-	During the research proposal, I focused on writing about the Simpsons dataset and what input was going to be used in the model. 	Throughout the actual implementation of the project, I was initially tasked with testing the baseline model that was produced. 		The team planned to use GPU processing, however at the particular time of testing, this feature was not complete. I spent my 		time executing various different test cases from 2-10 classes using the following specifications:
 	* NVidia 1080 GTX
 	* 32Gb ram
-	* Ryzen 1700 @ 3.00Ghz
-Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
+	* Ryzen 1700 @ 3.00Ghz  
+	  
+	Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
 
-  	
-* **Peter Bower** - *Development and Tuning*   
-	In this project I have focused on building on the initial transfer learning model via the above optimisation steps, including:
-	D Replacing CNN's final convolutional and classification layer with a custom one
-	* Adding Training Progress chart
-	* Adjusting training parameters
-	* Setting up auto-hyperparameter optimisation for the SVM
-	* Reviewing Incorrectly Classified Images and adding new training examples
-	* Confusion Matrix
- 
-* **Scott Casey** - *Documentation and Scalability*   
+* **Peter Bower 98136916** - *Development and Tuning*   
+	During the project I have focused on building on the initial ResNet-50 transfer learning model. This included helping take it from 71% accuracy to 95% accuracy via replacing ResNet-50's final convolutional and classification layers with custom ones, and extracting CNN features from the Simpson's dataset. I also added a live Training Progress chart, montage of incorrectly classified images and confusion matrix to visualise accuracy, and setup auto-hyperparameter optimisation for the SVM. Finally, when our accuracy plateued I reviewed the incorrectly classified characters and added+labelled 300-400 more training images for the 4 characters with the smallest sample sizes, and retrained, bringing the final accuracy result to 95.3%.
+
+* **Scott Casey 12032330** - *Documentation and Scalability*   
 	Insert contribution here.
 	
+
+* **Eric Chan** - *Documentation and Testing*  
+	Insert contribution here. 
+	
+
+* **Elektra Neocleous 98098445** - *Documentation and Testing*  
+	In this project I contributed to the documentation within the proposal and presentation and testing of the code. Within the proposal I researched into the image classification problem, the dataset sourced and algorithms we could apply to solve our problem. I discussed these points along with methodology of the machine learning process. I assisted in the editing and formatting of the document with the team. Additionally, I set up the presentation and split up the key points of discussions amongst members. In terms of code, I overlooked the preparation and creation process, assisting the team with idea generation in what we wanted executed. I assisted in testing the code and critiquing syntax. 
+  
+  	
+* **Josh Overett 11719097** - *Documentation and Testing*   
+	Insert contribution here.
+	
+ 
 
 ## Source References
 
