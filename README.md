@@ -101,7 +101,7 @@ This was a team project with significant crossover in areas of work and equal co
 	
 
 * **Eric Chan** - *Documentation and Testing*  
-	Insert contribution here. 
+	In the project requirements and specifications, I researched various methods that would also be viable in solving our classification problem, these include: Decision trees/ random forest, K-NN and adaptive boosting and reasons why they may or may not be a more viable option. I also assisted in editing the final document for submission. Using this research, I further tested these some of these methods on our dataset and compared these results with our ResNet-50 learning model. Furthermore, I assisted in testing the model and ensure it ran smoothly on my machine.
 	
 
 * **Elektra Neocleous 98098445** - *Documentation and Testing*  
