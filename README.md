@@ -109,7 +109,7 @@ This was a team project with significant crossover in areas of work and equal co
   
   	
 * **Josh Overett 11719097** - *Development and Testing*   
-	As part of the group project I foundand documented 8 potential image data sets and explored viable techniques and packages for training them. After the group chose the Simpsons dataset I found a MATLAB guide from which I was able to build the first version of the training and testing code in MATLAB. Once the ResNet-50 package had been chosen and installed, I adjusted some parameters and ensured that the code could run bug free and had test stages throughout to display images and confirm the success of each of the previous steps. I also contributed to project documentation at various stages and did final testing and work on the evaluation.
+	As part of the group project I found and documented 8 potential image data sets and explored viable techniques and packages for training them. After the group chose the Simpsons dataset I found a MATLAB guide from which I was able to build the first version of the training and testing code in MATLAB. Once the ResNet-50 package had been chosen and installed, I adjusted some parameters and ensured that the code could run bug free and had test stages throughout to display images and confirm the success of each of the previous steps. I also contributed to project documentation at various stages and did final testing and work on the evaluation.
 	
  
 
