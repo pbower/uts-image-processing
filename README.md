@@ -59,11 +59,11 @@ The model will now execute and begin training/scoring. Without training, the mod
 ## Built With
 
 *  MATLAB - MATLAB (matrix laboratory) is a multi-paradigm numerical computing environment and proprietary programming language developed by MathWorks.
-*  Resnet50 -  Matlab's Deep Learning Toolbox Model for ResNet-50
+*  ResNet50 -  Matlab's Deep Learning Toolbox Model for ResNet-50
 
 ## Major Optimisation Steps Taken:	
 #### Note: Accuracy %'s are with respect to 10 characters
-1. Initial Algorithm Development (Res-Net 50 > SVM Classifier Model)  <em>~71% Acc.</em>
+1. Initial Algorithm Development (ResNet-50 > SVM Classifier Model)  <em>~71% Acc.</em>
 2. Replace final Convolutional & Classification layers with custom ones to train on Simpson's features <em>~91% Acc.</em>
 3. Adjust training maxEpochs to avoid overfitting <em>~93% Acc.</em>
 4. Add self-learning hyperparameters for SVM -> minor improvement <em>+ ~0.5% Acc. </em>
@@ -75,7 +75,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 	* Running a python script to automatically download 100 images of the characters with the lowest training sample sizes from Google Images <em>(included in Dev Tools folder)</em>
 	* For images that needed more training data than Google had available (e.g. Milhouse), resample them by flipping them on the horizontal axis using Bash
 	* Organise them into the image naming conventions using Bash
-6. Re-Ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
+6. Re-ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
 
 #### To replicate this these results, run the algorithm 'as-is' without training. One can also refer to the 'saved_results' folder for output images.
 
@@ -109,15 +109,15 @@ This was a team project with significant crossover in areas of work and equal co
   
   	
 * **Josh Overett 11719097** - *Documentation and Testing*   
-	Insert contribution here.
+	As part of the group project I foundand documented 8 potential image data sets and explored viable techniques and packages for training them. After the group chose the Simpsons dataset I found a MATLAB guide from which I was able to build the first version of the training and testing code in MATLAB. Once the ResNet-50 package had been chosen and installed, I adjusted some parameters and ensured that the code could run bug free and had test stages throughout to display images and confirm the success of each of the previous steps. I also contributed to project documentation at various stages.
 	
  
 
 ## Source References
 
 * Attia, Alex - Creator of the Simpsons Dataset - [Kaggle URL](https://www.kaggle.com/alexattia/the-simpsons-characters-dataset)
-Mathworks - RestNet 50 - Software Download - [ResNet50 Download](https://au.mathworks.com/matlabcentral/fileexchange/64626-deep-learning-toolbox-model-for-resnet-50-network)
-* Kaggle - Resnet50 - [Overview of ResNet50](https://www.kaggle.com/keras/resnet50)
+Mathworks - ResNet50 - Software Download - [ResNet50 Download](https://au.mathworks.com/matlabcentral/fileexchange/64626-deep-learning-toolbox-model-for-resnet-50-network)
+* Kaggle - ResNet50 - [Overview of ResNet50](https://www.kaggle.com/keras/resnet50)
 
 
 ## Development References
