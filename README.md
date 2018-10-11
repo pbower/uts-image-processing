@@ -96,8 +96,8 @@ This was a team project with significant crossover in areas of work and equal co
 * **Peter Bower 98136916** - *Development and Tuning*   
 	During the project I have focused on building on the initial ResNet-50 transfer learning model. This included helping take it from 71% accuracy to 95% accuracy via replacing ResNet-50's final convolutional and classification layers with custom ones, and extracting CNN features from the Simpson's dataset. I also added a live Training Progress chart, montage of incorrectly classified images and confusion matrix to visualise accuracy, and setup auto-hyperparameter optimisation for the SVM. Finally, when our accuracy plateued I reviewed the incorrectly classified characters and added+labelled 300-400 more training images for the 4 characters with the smallest sample sizes, and retrained, bringing the final accuracy result to 95.3%.
 
-* **Scott Casey 12032330** - *Documentation and Scalability*   
-	Insert contribution here.
+* **Scott Casey 12032330** - *Documentation, Scalability and Testing*   
+	As part of the group project I was involved primarily with coding scalability and prevention of errors when the model is being trained or run. The Scalability coding included things such as; prompting the user how many classes (characters) to train the model on which has a serious impact on performance and run time. Enabling the ability to adjust the train test split of the data. To prevent input errors which could crash the program I added in safe guards such as loops that required only valid inputs otherwise it would ask again. An example of this is if you tried to train 0 classes the code would have crashed, but not it instead asks the user for another input. In addition to this I also spent significant time testing the model and running different iterations and solving random errors we occurred. Finally, I contributed to the documentation of the group work.
 	
 
 * **Eric Chan** - *Documentation and Testing*  
