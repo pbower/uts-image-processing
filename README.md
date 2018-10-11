@@ -108,8 +108,8 @@ This was a team project with significant crossover in areas of work and equal co
 	In this project I contributed to the documentation within the proposal and presentation and testing of the code. Within the proposal I researched into the image classification problem, the dataset sourced and algorithms we could apply to solve our problem. I discussed these points along with methodology of the machine learning process. I assisted in the editing and formatting of the document with the team. Additionally, I set up the presentation and split up the key points of discussions amongst members. In terms of code, I overlooked the preparation and creation process, assisting the team with idea generation in what we wanted executed. I assisted in testing the code and critiquing syntax. 
   
   	
-* **Josh Overett 11719097** - *Documentation and Testing*   
-	As part of the group project I foundand documented 8 potential image data sets and explored viable techniques and packages for training them. After the group chose the Simpsons dataset I found a MATLAB guide from which I was able to build the first version of the training and testing code in MATLAB. Once the ResNet-50 package had been chosen and installed, I adjusted some parameters and ensured that the code could run bug free and had test stages throughout to display images and confirm the success of each of the previous steps. I also contributed to project documentation at various stages.
+* **Josh Overett 11719097** - *Development and Testing*   
+	As part of the group project I foundand documented 8 potential image data sets and explored viable techniques and packages for training them. After the group chose the Simpsons dataset I found a MATLAB guide from which I was able to build the first version of the training and testing code in MATLAB. Once the ResNet-50 package had been chosen and installed, I adjusted some parameters and ensured that the code could run bug free and had test stages throughout to display images and confirm the success of each of the previous steps. I also contributed to project documentation at various stages and did final testing and work on the evaluation.
 	
  
 
