@@ -53,11 +53,14 @@ if train == 'y'
     
     trainingFolder = fullfile(filepath, 'simpsons_train_top10');                            % Set Training Folder
     train_imds = imageDatastore(fullfile(trainingFolder, characters), 'LabelSource', 'foldernames');  % Set image data store as only the predefined characters
-    tbl = countEachLabel(train_imds);                                                        % Double check count of images in each foldernames
-    minSetCount = min(tbl{:,2});                                                            % Determine the smallest amount of images in a character
-    train_imds = splitEachLabel(train_imds, minSetCount, 'randomize');                      % Set image folders to be the same size
-    countEachLabel(train_imds)                                                              % Triple check count of images in each foldernames
-
+    tmpTable = countEachLabel(train_imds)                                 % Check count of images in each named folder
+    
+    % Setup class weights based on sample size
+    classWeights = 1./(table2array(tmpTable(:,2)) / sum(table2array(tmpTable(:,2))));
+    classWeights = classWeights'/mean(classWeights);
+    numClasses = numel(categories(train_imds.Labels));
+    
+   
     % Extract the first image from each folder and create a 2x5 box to display them
     figure
     if version >= 9.5
@@ -78,7 +81,7 @@ if train == 'y'
     % Adjust the image size so that its readable by the classifier
     net = resnet50();
     imageSize = net.Layers(1).InputSize;
-
+    % Ensure input images have the same number of channels
     augmentedTrainingSet = augmentedImageDatastore(imageSize, trainingSet, 'ColorPreprocessing', 'gray2rgb');
     augmentedTestSet = augmentedImageDatastore(imageSize, testSet, 'ColorPreprocessing', 'gray2rgb');
 
@@ -132,8 +135,8 @@ if train == 'y'
             'BiasLearnRateFactor',10);
     lgraph = replaceLayer(lgraph,'fc1000',newLearnableLayer);
 
-    % Replace the Classification Layer with a new one
-    newClassLayer = classificationLayer('Name','ClassificationLayer_fc1000');
+    % Replace the Classification Layer with a new one .  
+    newClassLayer = weightedClassificationLayer(classWeights,'ClassificationLayer_fc1000');
     lgraph = replaceLayer(lgraph,'ClassificationLayer_fc1000',newClassLayer);
     connections = lgraph.Connections;
 
@@ -224,7 +227,7 @@ for n = 1:length(characters)
 end
 
 %Adjust the evaluation image size so that its readable by the classifier
-augmentedEvalSet = augmentedImageDatastore(imageSize, evalSet, 'ColorPreprocessing', 'gray2rgb');
+augmentedEvalSet = augmentedImageDatastore(imageSize, evalSet);
 
 % Running the model on the test set and evaluating	
 % Extract test features using the CNN
