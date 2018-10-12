@@ -76,6 +76,7 @@ The model will now execute and begin training/scoring. Without training, the mod
 	* For images that needed more training data than Google had available (e.g. Milhouse), resample them by flipping them on the horizontal axis using Bash
 	* Organise them into the image naming conventions using Bash
 6. Re-ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
+
 Note: After this we attempted a custom 'Weighted Classification Layer' model to fully utilise the number of training samples for each character. This produced no improvement (95.1% Acc.).
 
 #### To replicate this these results, run the algorithm 'as-is' without training. One can also refer to the 'saved_results' folder for output images.
