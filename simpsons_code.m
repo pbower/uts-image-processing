@@ -28,10 +28,8 @@ if matlabVersion >= 9.5 % Only allow training for version 2018b or later
         while(charValid == 'n')
             prompt = 'How many Characters(Classes) would you like to use in the creation of the model? Please enter a number between 2 and 10. This will impact time needed to train.';
             charNo = input(prompt);
-            if charNo >=2
-                if charNo <=10
+            if charNo >=2 && charNo <=10
                 charValid = 'y';
-                end
             end
         end
         train = 'y'; % Automatically re-retrain the SVM if features are re-trained
