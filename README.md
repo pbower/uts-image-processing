@@ -125,4 +125,32 @@ Mathworks - ResNet50 - Software Download - [ResNet50 Download](https://au.mathwo
 ## Development References
 [Train Deep Learning Network to Classify New Images- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/examples/train-deep-learning-network-to-classify-new-images.html)
 
-[Deep Learning in 10 lines of Matlab Code](https://blogs.mathworks.com/pick/2017/02/24/deep-learning-transfer-learning-in-10
+[Deep Learning in 10 lines of Matlab Code](https://blogs.mathworks.com/pick/2017/02/24/deep-learning-transfer-learning-in-10-lines-of-matlab-code/)
+
+[Image Category Classification Using Deep Learning](https://www.mathworks.com/examples/matlab-computer-vision/mw/vision-ex77068225-image-category-classification-using-deep-learning#17)
+
+[Train neural network for deep learning - MATLAB trainNetwork- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ref/trainnetwork.html#bu6sn60-2)
+
+[Parameter Optimisation References](https://towardsdatascience.com/understanding-learning-rates-and-how-it-improves-performance-in-deep-learning-d0d4059c1c10)
+
+[Compute convolutional neural network layer activations - MATLAB activations- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ref/activations.html)
+
+[Options for training deep learning neural network - MATLAB trainingOptions- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ref/trainingoptions.html)
+
+[2-D convolutional layer - MATLAB- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ref/nnet.cnn.layer.convolution2dlayer.html#mw_308497ca-95e8-402a-9c40-18157b47a74a)
+
+[Fully connected layer - MATLAB- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ref/nnet.cnn.layer.fullyconnectedlayer.html#mw_bac20c29-f95b-423a-816a-428fc8e0463e)
+
+[Create Simple Deep Learning Network for Classification- MATLAB & Simulink Example- MathWorks Australia](https://au.mathworks.com/help/deeplearning/examples/create-simple-deep-learning-network-for-classification.html)
+
+[Pretrained Convolutional Neural Networks- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ug/pretrained-convolutional-neural-networks.html)
+
+[Transfer Learning Using AlexNet- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/examples/transfer-learning-using-alexnet.html)
+
+[Classify Image Using GoogLeNet- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/examples/classify-image-using-googlenet.html)
+
+[Transfer Learning with Deep Network Designer- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/ug/transfer-learning-with-deep-network-designer.html)
+
+ [Deep Learning with Images- MATLAB & Simulink- MathWorks Australia](https://au.mathworks.com/help/deeplearning/deep-learning-with-images.html)
+ 
+[Train an image category classifier - MATLAB trainImageCategoryClassifier- MathWorks Australia](http://au.mathworks.com/help/vision/ref/trainimagecategoryclassifier.html)
