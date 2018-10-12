@@ -26,9 +26,7 @@ This will download and work automatically provided the project is cloned or down
 
 The first step in order to execute the classification model is installing the required MATLAB package.
 
-This package will be provided as an exe in the root of the project folder.
-
-Installing Resnet
+Installing Resnet:
 
 ```
 From MATLAB
