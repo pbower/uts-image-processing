@@ -13,10 +13,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-There are two prerequisites in order to run this model.
+There are three prerequisites in order to run this model.
 
 ```
 MATLAB - Downloaded and Installed
+Deep Learning Toolbox - Downloaded and Installed
 Dataset - The Simpsons dataset must be present in the root of the codebase folder directory. 
 This will download and work automatically provided the project is cloned or downloaded via the GIT .zip file.
 ```
