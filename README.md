@@ -13,22 +13,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-There are three prerequisites in order to run this model.
+There are four prerequisites in order to run this model.
 
 ```
 MATLAB - Downloaded and Installed
 Deep Learning Toolbox - Downloaded and Installed
+Res-Net50 Matlab CNN - Downloaded and Installed (included with instructions below)
 Dataset - The Simpsons dataset must be present in the root of the codebase folder directory. 
 This will download and work automatically provided the project is cloned or downloaded via the GIT .zip file.
 ```
 
-### Installing
+### Installing Res-Net 50
 
-The first step in order to execute the classification model is installing the required MATLAB package.
+The first step in order to execute the classification model is installing the Res-Net 50 MATLAB package.
 
-This package will be provided as an exe in the root of the project folder.
-
-Installing Resnet
+Installing Resnet:
 
 ```
 From MATLAB
@@ -78,6 +77,8 @@ The model will now execute and begin training/scoring. Without training, the mod
 	* Organise them into the image naming conventions using Bash
 6. Re-ran training on several parameters. Original ones produced the best results -> <em>95.3% Acc.</em>
 
+Note: After this we attempted a custom 'Weighted Classification Layer' model to fully utilise the number of training samples for each character. This produced no improvement (95.1% Acc.).
+
 #### To replicate this these results, run the algorithm 'as-is' without training. One can also refer to the 'saved_results' folder for output images.
 
 ## Authors
@@ -95,7 +96,7 @@ This was a team project with significant crossover in areas of work and equal co
 	Using the baseline model, this achieved an average time of ~22 minutes. As well as testing the model, I prepared the readme file which contains the following sections:  the model prerequisites. Installing and supplying the Resnet package as an executable and Running the model.
 
 * **Peter Bower 98136916** - *Development and Tuning*   
-	During the project I have focused on building on the initial ResNet-50 transfer learning model. This included helping take it from 71% accuracy to 95% accuracy via replacing ResNet-50's final convolutional and classification layers with custom ones, and extracting CNN features from the Simpson's dataset. I also added a live Training Progress chart, montage of incorrectly classified images and confusion matrix to visualise accuracy, and setup auto-hyperparameter optimisation for the SVM. Finally, when our accuracy plateued I reviewed the incorrectly classified characters and added+labelled 300-400 more training images for the 4 characters with the smallest sample sizes, and retrained, bringing the final accuracy result to 95.3%.
+	During the project I have focused on building on the initial ResNet-50 transfer learning model. This included helping take it from 71% accuracy to 95% accuracy via replacing ResNet-50's final convolutional and classification layers with custom ones, and extracting CNN features from the Simpson's dataset. I also added a live Training Progress chart, montage of incorrectly classified images and confusion matrix to visualise accuracy, and setup auto-hyperparameter optimisation for the SVM. Finally, when our accuracy plateued I reviewed the incorrectly classified characters and added+labelled 300-400 more training images for the 4 characters with the smallest sample sizes, and retrained, bringing the final accuracy result to 95.3%. 
 
 * **Scott Casey 12032330** - *Documentation, Scalability and Testing*   
 	As part of the group project I was involved primarily with coding scalability and prevention of errors when the model is being trained or run. The Scalability coding included things such as; prompting the user how many classes (characters) to train the model on which has a serious impact on performance and run time. Enabling the ability to adjust the train test split of the data. To prevent input errors which could crash the program I added in safe guards such as loops that required only valid inputs otherwise it would ask again. An example of this is if you tried to train 0 classes the code would have crashed, but now it instead asks the user for another input. In addition to this I also spent significant time testing the model and running different iterations and solving random errors we encounted. Finally, I contributed to the documentation of the group work.
